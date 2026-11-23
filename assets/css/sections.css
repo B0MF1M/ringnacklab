@@ -1,0 +1,364 @@
+/* ==========================================================================
+   Para Criadores (#parceria) — sem cards aninhados
+   ========================================================================== */
+.partner-section {
+  padding: var(--section-y) 0;
+  background-color: var(--night);
+  color: var(--on-night);
+}
+
+.partner-layout {
+  @apply grid grid-cols-1 gap-10 lg:grid-cols-12 lg:items-start lg:gap-14;
+}
+
+.partner-copy {
+  @apply lg:col-span-7;
+}
+
+.partner-title {
+  margin: 0.65rem 0 0;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(1.8rem, 1.35rem + 1.8vw, 2.65rem);
+  line-height: 1.2;
+  letter-spacing: -0.012em;
+  color: #FFFFFF;
+  text-wrap: balance;
+}
+
+.partner-lede {
+  margin: 1rem 0 0;
+  max-width: 50ch;
+  font-size: 16.5px;
+  line-height: 1.6;
+  color: var(--on-night-muted);
+}
+
+.partner-terms {
+  margin: 2rem 0 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid var(--night-line);
+}
+
+.partner-term {
+  @apply flex flex-col gap-1 sm:flex-row sm:items-baseline sm:justify-between sm:gap-6;
+  padding: 0.95rem 0;
+  border-bottom: 1px solid var(--night-line);
+}
+
+.partner-term-title {
+  font-size: 15.5px;
+  font-weight: 600;
+  color: #FFFFFF;
+}
+
+.partner-term-text {
+  font-size: 14.5px;
+  color: var(--on-night-muted);
+}
+
+.partner-aside {
+  @apply flex flex-col lg:col-span-5;
+}
+
+@media (min-width: 1024px) {
+  .partner-aside {
+    padding-left: 2.25rem;
+    border-left: 1px solid var(--night-line);
+  }
+}
+
+.partner-stats {
+  @apply grid grid-cols-2 gap-6;
+  padding-bottom: 1.75rem;
+  border-bottom: 1px solid var(--night-line);
+}
+
+.partner-stat-number {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(2rem, 1.65rem + 1.4vw, 2.75rem);
+  line-height: 1.08;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+  color: #FFFFFF;
+}
+
+.partner-stat-label {
+  margin-top: 0.45rem;
+  font-size: 14px;
+  line-height: 1.45;
+  color: var(--on-night-muted);
+}
+
+.partner-cta {
+  margin-top: 1.75rem;
+  min-height: 54px;
+  font-size: 16px;
+}
+
+.partner-note {
+  margin: 0.75rem 0 0;
+  font-size: 13.5px;
+  text-align: center;
+  color: var(--on-night-muted);
+}
+
+.partner-buyer-link {
+  margin: 1.25rem 0 0;
+  padding-top: 1.1rem;
+  border-top: 1px solid var(--night-line);
+  font-size: 14px;
+  text-align: center;
+  color: var(--on-night-muted);
+}
+
+.partner-inline-link {
+  color: var(--gold);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.partner-inline-link:hover {
+  color: #FFFFFF;
+}
+
+/* ==========================================================================
+   Perguntas Frequentes (#faq) — última seção antes do rodapé
+   ========================================================================== */
+.faq-section {
+  padding: var(--section-y) 0;
+}
+
+.faq-layout {
+  @apply grid grid-cols-1 gap-10 lg:grid-cols-12 lg:items-start lg:gap-14;
+}
+
+.faq-intro {
+  @apply lg:col-span-4;
+}
+
+@media (min-width: 1024px) {
+  .faq-intro {
+    position: sticky;
+    top: calc(var(--header-h) + 2rem);
+  }
+}
+
+.faq-alert {
+  margin: 1.5rem 0 0;
+  padding: 1.15rem 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  background: transparent;
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: var(--ink-soft);
+}
+
+.faq-alert strong {
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.faq-contact {
+  margin: 1.25rem 0 0;
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--ink-soft);
+}
+
+.faq-list {
+  @apply lg:col-span-8;
+  border-top: 1px solid var(--line);
+}
+
+.faq-item {
+  border-bottom: 1px solid var(--line);
+}
+
+.faq-question {
+  @apply flex items-center justify-between gap-4;
+  min-height: 60px;
+  padding: 1.05rem 0;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.1rem;
+  line-height: 1.35;
+  color: var(--ink);
+  cursor: pointer;
+  list-style: none;
+  transition: color 0.2s var(--ease);
+}
+
+.faq-question::-webkit-details-marker {
+  display: none;
+}
+
+.faq-question:hover {
+  color: var(--brand);
+}
+
+.faq-sign {
+  @apply relative flex shrink-0 items-center justify-center;
+  width: 24px;
+  height: 24px;
+  color: var(--ink-muted);
+}
+
+.faq-sign::before,
+.faq-sign::after {
+  content: '';
+  position: absolute;
+  width: 14px;
+  height: 1.75px;
+  background-color: currentColor;
+  transition: transform 0.25s var(--ease);
+}
+
+.faq-sign::after {
+  transform: rotate(90deg);
+}
+
+.faq-item[open] .faq-sign {
+  color: var(--brand);
+}
+
+.faq-item[open] .faq-sign::after {
+  transform: rotate(0deg);
+}
+
+.faq-answer {
+  margin: 0;
+  padding: 0 2.5rem 1.35rem 0;
+  font-size: 15.5px;
+  line-height: 1.65;
+  color: var(--ink-soft);
+}
+
+.faq-answer a {
+  font-weight: 600;
+  color: var(--brand);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+.site-footer {
+  padding: clamp(3rem, 2.5rem + 2.5vw, 4.5rem) 0 2rem;
+  background-color: var(--footer-bg);
+  color: var(--on-night);
+}
+
+@media (max-width: 767px) {
+  .site-footer {
+    padding-bottom: 6.5rem;
+  }
+}
+
+.footer-grid {
+  @apply grid grid-cols-1 gap-10 md:grid-cols-12;
+}
+
+.footer-brand {
+  @apply md:col-span-5;
+}
+
+.footer-logo {
+  width: 205px;
+  height: auto;
+}
+
+.footer-tagline {
+  margin: 1.15rem 0 0;
+  max-width: 36ch;
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--on-night-muted);
+}
+
+.footer-col {
+  @apply md:col-span-3;
+}
+
+.footer-col-legal {
+  @apply md:col-span-4;
+}
+
+.footer-heading {
+  margin: 0 0 0.75rem;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--on-night-muted);
+}
+
+.footer-links {
+  @apply flex flex-col;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.footer-link {
+  @apply inline-flex items-center;
+  min-height: 38px;
+  font-size: 15px;
+  color: var(--on-night);
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  text-underline-offset: 4px;
+  transition: text-decoration-color 0.2s var(--ease);
+}
+
+.footer-link:hover {
+  text-decoration-color: currentColor;
+}
+
+.footer-legal {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.65;
+  color: var(--on-night-muted);
+}
+
+.footer-bottom {
+  @apply flex flex-col justify-between gap-2 sm:flex-row;
+  margin-top: 2.75rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--night-line);
+  font-size: 13.5px;
+  color: var(--on-night-muted);
+}
+
+/* ==========================================================================
+   Barra de ação fixa (mobile)
+   ========================================================================== */
+.mobile-cta-bar {
+  @apply fixed inset-x-0 bottom-0 z-40 flex gap-2.5 md:hidden;
+  padding: 0.7rem 1rem calc(0.7rem + env(safe-area-inset-bottom));
+  background-color: rgba(255, 255, 255, 0.97);
+  border-top: 1px solid var(--line);
+  box-shadow: 0 -8px 24px -14px rgba(20, 25, 26, 0.22);
+}
+
+.mobile-cta-bar .btn {
+  flex: 1;
+  min-height: 48px;
+  font-size: 14.5px;
+}
+
+.slide-up-enter-active,
+.slide-up-leave-active {
+  transition: transform 0.25s var(--ease);
+}
+
+.slide-up-enter-from,
+.slide-up-leave-to {
+  transform: translateY(110%);
+}

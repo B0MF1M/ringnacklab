@@ -1,0 +1,290 @@
+/* ==========================================================================
+   Pacote de Guias (#guias) — carrossel interativo dos 3 guias + CTA
+   ========================================================================== */
+.guides-section {
+  padding: var(--section-y) 0;
+}
+
+.bundle-card {
+  @apply grid grid-cols-1 overflow-hidden lg:grid-cols-12;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  background-color: var(--surface);
+  box-shadow: 0 18px 40px -28px rgba(15, 34, 39, 0.28);
+}
+
+/* Palco visual interativo com os 3 guias em leque */
+.bundle-stage {
+  @apply relative flex flex-col items-center justify-center lg:col-span-6;
+  padding: clamp(2rem, 1.5rem + 2.2vw, 3.25rem) clamp(1.25rem, 1rem + 1.5vw, 2.25rem);
+  background: radial-gradient(circle at 50% 42%, #193A42 0%, var(--night) 74%);
+  color: var(--on-night);
+}
+
+.bundle-fan {
+  position: relative;
+  width: 100%;
+  max-width: 500px;
+  aspect-ratio: 4 / 3.45;
+  margin: 0.75rem auto 0;
+}
+
+.bundle-book {
+  position: absolute;
+  top: 8%;
+  width: 42%;
+  padding: 0;
+  border: 1.5px solid rgba(255, 255, 255, 0.14);
+  border-radius: 8px;
+  background: none;
+  overflow: hidden;
+  cursor: pointer;
+  filter: brightness(0.68);
+  opacity: 0.92;
+  box-shadow: 0 18px 36px -14px rgba(0, 0, 0, 0.65);
+  transition: transform 0.4s var(--ease), filter 0.35s var(--ease),
+    opacity 0.35s var(--ease), box-shadow 0.4s var(--ease), border-color 0.3s var(--ease);
+}
+
+.bundle-book-img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  display: block;
+}
+
+/* Posições fixas no leque (evita pulo do card sob o mouse) */
+.bundle-book-0 {
+  left: 6%;
+  z-index: 1;
+  transform: rotate(-7deg) translateY(9%) scale(0.92);
+}
+
+.bundle-book-1 {
+  left: 29%;
+  z-index: 2;
+  transform: rotate(0deg) translateY(3%) scale(0.95);
+}
+
+.bundle-book-2 {
+  left: 52%;
+  z-index: 1;
+  transform: rotate(7deg) translateY(9%) scale(0.92);
+}
+
+/* Destaque ao passar o mouse, focar ou selecionar no carrossel */
+.bundle-book.is-active {
+  z-index: 10;
+  opacity: 1;
+  filter: brightness(1);
+  border-color: rgba(240, 189, 66, 0.75);
+  transform: rotate(0deg) translateY(-6%) scale(1.1);
+  box-shadow:
+    0 28px 54px -14px rgba(0, 0, 0, 0.88),
+    0 0 0 2px rgba(240, 189, 66, 0.3);
+}
+
+/* Controles discretos do carrossel abaixo das capas */
+.bundle-carousel-bar {
+  @apply flex w-full items-center justify-between gap-3;
+  max-width: 440px;
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--night-line);
+}
+
+.bundle-nav-btn {
+  @apply flex shrink-0 items-center justify-center;
+  width: 40px;
+  height: 40px;
+  border: 1px solid rgba(244, 245, 242, 0.28);
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: var(--on-night);
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.2s var(--ease), border-color 0.2s var(--ease),
+    color 0.2s var(--ease);
+}
+
+.bundle-nav-btn:hover {
+  border-color: var(--gold);
+  background-color: var(--gold);
+  color: var(--ink);
+}
+
+.bundle-carousel-status {
+  @apply flex min-w-0 flex-1 flex-col items-center gap-2;
+}
+
+.bundle-active-label {
+  @apply truncate;
+  max-width: 100%;
+  font-size: 13.5px;
+  font-weight: 500;
+  color: var(--on-night);
+}
+
+.bundle-dots {
+  @apply flex items-center gap-2;
+}
+
+.bundle-dot {
+  width: 8px;
+  height: 8px;
+  padding: 0;
+  border: 0;
+  border-radius: 999px;
+  background-color: rgba(244, 245, 242, 0.35);
+  cursor: pointer;
+  transition: width 0.25s var(--ease), background-color 0.25s var(--ease);
+}
+
+.bundle-dot.is-active {
+  width: 24px;
+  background-color: var(--gold);
+}
+
+/* Coluna direita: proposta de valor + lista sincronizada + CTA em destaque */
+.bundle-content {
+  @apply flex flex-col justify-center lg:col-span-6;
+  padding: clamp(1.75rem, 1.25rem + 2vw, 3rem);
+}
+
+.bundle-title {
+  margin: 0.55rem 0 0;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(1.7rem, 1.3rem + 1.6vw, 2.35rem);
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  text-wrap: balance;
+}
+
+.bundle-lede {
+  margin: 0.85rem 0 0;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--ink-soft);
+}
+
+.bundle-lede strong {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.bundle-includes {
+  margin: 1.5rem 0 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid var(--line);
+}
+
+.bundle-include {
+  @apply flex items-start gap-3;
+  padding: 0.85rem 0.75rem;
+  margin: 0 -0.75rem;
+  border-bottom: 1px solid var(--line);
+  border-left: 3px solid transparent;
+  cursor: pointer;
+  transition: background-color 0.2s var(--ease), border-left-color 0.2s var(--ease);
+}
+
+.bundle-include.is-active {
+  background-color: var(--paper);
+  border-left-color: var(--brand);
+}
+
+.bundle-include-icon {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  margin-top: 2px;
+  color: var(--brand);
+}
+
+.bundle-include-title {
+  display: block;
+  font-size: 15.5px;
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--ink);
+}
+
+.bundle-include-topics {
+  display: block;
+  margin-top: 2px;
+  font-size: 13.5px;
+  line-height: 1.45;
+  color: var(--ink-muted);
+}
+
+/* Bloco de ação em destaque */
+.bundle-action-box {
+  margin-top: 1.6rem;
+  padding: 1.25rem;
+  border-radius: var(--radius);
+  background-color: var(--night);
+  color: var(--on-night);
+}
+
+.bundle-price {
+  margin-bottom: 1rem;
+}
+
+.bundle-price-old {
+  font-size: 14px;
+  color: var(--on-night-muted);
+}
+
+.bundle-price-value {
+  display: block;
+  margin-top: 0.1rem;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(2.1rem, 1.7rem + 1.4vw, 2.7rem);
+  line-height: 1.08;
+  color: #FFFFFF;
+}
+
+.bundle-price-note {
+  display: block;
+  margin-top: 0.3rem;
+  font-size: 13.5px;
+  color: var(--on-night-muted);
+}
+
+.bundle-coupon {
+  @apply flex items-center gap-2;
+  margin: 0 0 0.9rem;
+  font-size: 14.5px;
+  color: var(--on-night);
+}
+
+.bundle-coupon strong {
+  font-family: var(--font-mono);
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  color: var(--gold);
+}
+
+.bundle-coupon-icon {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  color: var(--gold);
+}
+
+.bundle-cta {
+  min-height: 56px;
+  font-size: 16.5px;
+}
+
+.bundle-note {
+  margin: 0.75rem 0 0;
+  font-size: 13px;
+  text-align: center;
+  color: var(--on-night-muted);
+}

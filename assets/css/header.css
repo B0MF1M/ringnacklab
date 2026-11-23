@@ -1,0 +1,155 @@
+/* ==========================================================================
+   Header
+   ========================================================================== */
+.site-header {
+  @apply fixed inset-x-0 top-0 z-50;
+  height: var(--header-h);
+  background-color: rgba(255, 255, 255, 0.96);
+  border-bottom: 1px solid var(--line);
+  color: var(--ink);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  transition: box-shadow 0.25s var(--ease);
+}
+
+.site-header.is-scrolled {
+  box-shadow: 0 4px 20px -14px rgba(20, 25, 26, 0.25);
+}
+
+.header-inner {
+  @apply mx-auto flex h-full w-full items-center justify-between gap-6 px-5 md:px-8;
+  max-width: 1180px;
+}
+
+.brand-lockup {
+  @apply flex items-center;
+  gap: 8px;
+  min-height: 44px;
+  text-decoration: none;
+}
+
+.brand-mark {
+  height: 42px;
+  width: auto;
+}
+
+.brand-wordmark {
+  height: 20px;
+  width: auto;
+  transform: translateY(-2px);
+}
+
+.main-nav {
+  @apply hidden items-center lg:flex;
+  gap: 1.75rem;
+}
+
+.nav-link {
+  @apply inline-flex items-center;
+  min-height: 44px;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--ink-soft);
+  text-decoration: none;
+  transition: color 0.2s var(--ease);
+}
+
+.nav-link:hover {
+  color: var(--ink);
+}
+
+.header-actions {
+  @apply flex items-center gap-2;
+}
+
+.nav-cta {
+  @apply hidden sm:inline-flex;
+  min-height: 42px;
+  padding: 0 1.05rem;
+  font-size: 14.5px;
+}
+
+/* Menu mobile */
+.menu-toggle {
+  @apply relative flex items-center justify-center lg:hidden;
+  width: 44px;
+  height: 44px;
+  margin-right: -6px;
+  border: 0;
+  border-radius: var(--radius-sm);
+  background: none;
+  color: var(--ink);
+  cursor: pointer;
+}
+
+.menu-toggle:hover {
+  background-color: var(--stone);
+}
+
+.menu-toggle-bar {
+  position: absolute;
+  left: 11px;
+  width: 22px;
+  height: 2px;
+  border-radius: 1px;
+  background-color: currentColor;
+  transition: transform 0.25s var(--ease), top 0.25s var(--ease);
+}
+
+.menu-toggle-bar:first-child {
+  top: 17px;
+}
+
+.menu-toggle-bar:last-child {
+  top: 25px;
+}
+
+.menu-toggle.is-open .menu-toggle-bar:first-child {
+  top: 21px;
+  transform: rotate(45deg);
+}
+
+.menu-toggle.is-open .menu-toggle-bar:last-child {
+  top: 21px;
+  transform: rotate(-45deg);
+}
+
+.mobile-drawer {
+  @apply fixed inset-x-0 bottom-0 flex flex-col gap-6 lg:hidden;
+  top: var(--header-h);
+  padding: 1.25rem 1.25rem 2rem;
+  background-color: var(--surface);
+  color: var(--ink);
+  border-top: 1px solid var(--line);
+  overflow-y: auto;
+}
+
+.mobile-nav-list {
+  @apply flex flex-col;
+}
+
+.mobile-nav-link {
+  @apply flex items-center justify-between;
+  min-height: 58px;
+  border-bottom: 1px solid var(--line);
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.35rem;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.mobile-nav-cta {
+  @apply mt-auto;
+}
+
+.drawer-enter-active,
+.drawer-leave-active {
+  transition: opacity 0.2s var(--ease), transform 0.2s var(--ease);
+}
+
+.drawer-enter-from,
+.drawer-leave-to {
+  opacity: 0;
+  transform: translateY(-6px);
+}

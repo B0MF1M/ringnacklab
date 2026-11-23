@@ -1,0 +1,16 @@
+/*
+ * Ordem: tokens → base Tailwind → componentes → utilitários.
+ * Usa o padrão postcss-import (todas as diretivas como @import no topo).
+ */
+@import 'tailwindcss/base';
+@import './tokens.css';
+
+@import 'tailwindcss/components';
+@import './layout.css';
+@import './header.css';
+@import './hero.css';
+@import './breeders.css';
+@import './guides.css';
+@import './sections.css';
+
+@import 'tailwindcss/utilities';

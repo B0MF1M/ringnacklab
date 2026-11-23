@@ -1,0 +1,416 @@
+/* ==========================================================================
+   Diretório de Criadouros (#criadouros)
+   ========================================================================== */
+.directory-section {
+  padding: var(--section-y) 0;
+}
+
+/* Faixa prática do que exigir em uma compra legalizada */
+.legal-checklist-strip {
+  @apply grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4;
+  margin: 0 0 2rem;
+  padding: 1.1rem 1.25rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background-color: var(--surface);
+  list-style: none;
+}
+
+.legal-checklist-item {
+  @apply flex items-start gap-2.5;
+  font-size: 14px;
+  line-height: 1.45;
+  color: var(--ink-soft);
+}
+
+.legal-checklist-item strong {
+  display: block;
+  font-size: 14.5px;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.legal-checklist-icon {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  margin-top: 2px;
+  color: var(--brand);
+}
+
+.directory-toolbar {
+  @apply flex flex-wrap items-center justify-between gap-3;
+  margin-bottom: 1.25rem;
+  font-size: 14.5px;
+  color: var(--ink-soft);
+}
+
+.directory-result strong {
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.directory-clear {
+  min-height: 40px;
+  padding: 0 0.25rem;
+  border: 0;
+  background: none;
+  font-family: var(--font-body);
+  font-size: 14.5px;
+  font-weight: 600;
+  color: var(--brand);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  cursor: pointer;
+}
+
+.breeder-grid {
+  @apply grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3;
+}
+
+/* Card do criadouro */
+.breeder-card {
+  @apply flex flex-col;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  background-color: var(--surface);
+  transition: border-color 0.2s var(--ease), box-shadow 0.2s var(--ease);
+}
+
+.breeder-card:hover {
+  border-color: var(--line-ui);
+  box-shadow: 0 12px 28px -18px rgba(20, 25, 26, 0.22);
+}
+
+.breeder-card-head {
+  @apply flex items-start gap-3.5;
+  padding: 1.35rem 1.35rem 0;
+}
+
+.breeder-avatar {
+  @apply flex shrink-0 items-center justify-center overflow-hidden;
+  width: 52px;
+  height: 52px;
+  border-radius: var(--radius);
+  background-color: var(--brand-tint);
+  border: 1px solid var(--line);
+}
+
+.breeder-logo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.breeder-initials {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.15rem;
+  letter-spacing: 0.02em;
+  color: var(--brand);
+}
+
+.breeder-heading {
+  @apply min-w-0 flex-1;
+}
+
+.breeder-topline {
+  @apply flex items-center justify-between gap-2;
+}
+
+.breeder-location {
+  font-size: 13.5px;
+  font-weight: 500;
+  color: var(--ink-muted);
+}
+
+.breeder-featured {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--brand);
+}
+
+.breeder-name {
+  margin: 0.2rem 0 0;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.15rem;
+  line-height: 1.3;
+  letter-spacing: -0.005em;
+  color: var(--ink);
+}
+
+/* Selo de legalização — único uso do âmbar */
+.legal-badge {
+  @apply flex items-start gap-2.5;
+  margin: 1.1rem 1.35rem 0;
+  padding: 0.7rem 0.85rem;
+  border: 1px solid var(--amber-line);
+  border-radius: var(--radius-sm);
+  background-color: var(--amber-bg);
+  color: var(--amber-text);
+}
+
+.legal-badge-icon {
+  width: 19px;
+  height: 19px;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.legal-badge-body {
+  @apply flex min-w-0 flex-col;
+  line-height: 1.35;
+}
+
+.legal-badge-status {
+  font-size: 13.5px;
+  font-weight: 700;
+}
+
+.legal-badge-code {
+  margin-top: 2px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  word-break: break-word;
+}
+
+/* Metadados */
+.breeder-data {
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  margin: 0.9rem 1.35rem 0;
+  font-size: 14.5px;
+}
+
+.breeder-data-label,
+.breeder-data-value {
+  padding: 0.65rem 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.breeder-data-label {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--ink-muted);
+}
+
+.breeder-data-value {
+  margin: 0;
+  line-height: 1.45;
+  color: var(--ink);
+}
+
+.breeder-data-sub {
+  display: block;
+  margin-top: 2px;
+  font-size: 13.5px;
+  color: var(--ink-soft);
+}
+
+.breeder-phone {
+  font-variant-numeric: tabular-nums;
+  font-weight: 500;
+}
+
+.breeder-card-foot {
+  margin-top: auto;
+  padding: 1.25rem 1.35rem 1.35rem;
+}
+
+.breeder-since {
+  margin: 0.65rem 0 0;
+  font-size: 12.5px;
+  text-align: center;
+  color: var(--ink-muted);
+}
+
+/* Estado vazio */
+.empty-state {
+  @apply grid grid-cols-1 items-center gap-6 lg:grid-cols-12;
+  padding: clamp(1.5rem, 1rem + 2.5vw, 2.5rem);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  background-color: var(--surface);
+}
+
+.empty-state-copy {
+  @apply lg:col-span-7;
+}
+
+.empty-state-title {
+  margin: 0.5rem 0 0;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(1.4rem, 1.1rem + 1vw, 1.85rem);
+  line-height: 1.2;
+  color: var(--ink);
+}
+
+.empty-state-text {
+  margin: 0.65rem 0 0;
+  max-width: 52ch;
+  color: var(--ink-soft);
+}
+
+.empty-state-actions {
+  @apply flex flex-col gap-3 lg:col-span-5;
+}
+
+/* ==========================================================================
+   Modo credenciamento aberto (0 criadouros ativos) — seletor interativo
+   ========================================================================== */
+.launch-directory {
+  margin: 0 auto;
+  max-width: 920px;
+}
+
+.launch-head {
+  margin: 0 auto 2.25rem;
+  max-width: 680px;
+  text-align: center;
+}
+
+.launch-lede {
+  margin: 0.9rem auto 0;
+  max-width: 56ch;
+  font-size: 16px;
+  line-height: 1.65;
+  color: var(--ink-soft);
+}
+
+.region-selector-card {
+  padding: clamp(1.35rem, 1rem + 2vw, 2.25rem);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  background-color: var(--surface);
+  box-shadow: 0 14px 32px -24px rgba(15, 34, 39, 0.22);
+}
+
+/* Abas de região centralizadas */
+.region-tabs {
+  @apply flex flex-wrap items-center justify-center gap-1.5;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.region-tab {
+  min-height: 40px;
+  padding: 0 1rem;
+  border: 1px solid transparent;
+  border-radius: var(--radius-sm);
+  background-color: transparent;
+  font-family: var(--font-body);
+  font-size: 14.5px;
+  font-weight: 600;
+  color: var(--ink-soft);
+  cursor: pointer;
+  transition: background-color 0.2s var(--ease), color 0.2s var(--ease),
+    border-color 0.2s var(--ease);
+}
+
+.region-tab:hover {
+  background-color: var(--paper);
+  color: var(--ink);
+}
+
+.region-tab.is-active {
+  background-color: var(--brand);
+  color: #FFFFFF;
+}
+
+/* Grade de estados clicáveis */
+.uf-selector-grid {
+  @apply grid grid-cols-2 gap-2.5 sm:grid-cols-3 md:grid-cols-4;
+  margin-top: 1.35rem;
+}
+
+.uf-tile {
+  @apply flex flex-col items-start text-left;
+  min-height: 62px;
+  padding: 0.7rem 0.9rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background-color: var(--paper);
+  cursor: pointer;
+  transition: border-color 0.2s var(--ease), background-color 0.2s var(--ease),
+    color 0.2s var(--ease);
+}
+
+.uf-tile:hover {
+  border-color: var(--brand);
+  background-color: var(--surface);
+}
+
+.uf-tile-code {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.05rem;
+  line-height: 1.15;
+  color: var(--ink);
+}
+
+.uf-tile-name {
+  margin-top: 2px;
+  font-size: 13px;
+  line-height: 1.25;
+  color: var(--ink-muted);
+}
+
+.uf-tile.is-selected {
+  border-color: var(--brand);
+  background-color: var(--brand);
+}
+
+.uf-tile.is-selected .uf-tile-code {
+  color: #FFFFFF;
+}
+
+.uf-tile.is-selected .uf-tile-name {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+/* Status e CTAs centralizados */
+.region-status-bar {
+  margin-top: 1.4rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--line);
+  text-align: center;
+  font-size: 14.5px;
+  color: var(--ink-soft);
+}
+
+.region-status-bar strong {
+  color: var(--ink);
+  font-weight: 700;
+}
+
+.launch-cta-group {
+  @apply flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:items-center;
+  margin-top: 1.15rem;
+}
+
+.launch-cta-btn {
+  min-height: 50px;
+  padding: 0 1.4rem;
+}
+
+/* Barra discreta de critérios na base */
+.launch-criteria {
+  @apply grid grid-cols-1 gap-x-6 gap-y-2.5 sm:grid-cols-2;
+  margin: 1.75rem 0 0;
+  padding: 0 0.5rem;
+  list-style: none;
+}
+
+.launch-criteria-item {
+  @apply flex items-start gap-2;
+  font-size: 14px;
+  line-height: 1.45;
+  color: var(--ink-soft);
+}
+
+.launch-criteria-item strong {
+  font-weight: 600;
+  color: var(--ink);
+}

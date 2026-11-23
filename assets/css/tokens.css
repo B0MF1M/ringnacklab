@@ -1,0 +1,145 @@
+/* ==========================================================================
+   RingnackLab — Design Tokens
+   Paleta editorial sóbria (sem neon SaaS): alabastro + pedra + petróleo
+   profundo + dourado quente (alinhado às capas dos guias) + âmbar legal.
+   Todos os pares de texto validados em WCAG 2.2 AA/AAA.
+   ========================================================================== */
+:root {
+  /* Superfícies claras */
+  --paper: #FAFAF7;
+  --stone: #F2F0EA;
+  --surface: #FFFFFF;
+  --line: #E5E2D9;
+  --line-ui: #768184;
+
+  /* Tinta */
+  --ink: #14191A;
+  --ink-soft: #454F52;
+  --ink-muted: #5C676A;
+
+  /* Ação principal (petróleo profundo derivado da marca) */
+  --brand: #18474F;
+  --brand-hover: #10343A;
+  --brand-tint: #EBF2F2;
+
+  /* Superfícies escuras */
+  --night: #0F2227;
+  --night-2: #163138;
+  --footer-bg: #0A181C;
+  --on-night: #F4F5F2;
+  --on-night-muted: #B2C0C2;
+  --night-line: rgba(244, 245, 242, 0.14);
+
+  /* Destaque quente (apenas em superfícies escuras, com tinta --ink) */
+  --gold: #F0BD42;
+  --gold-hover: #E2AC2C;
+
+  /* Selo de regularização (uso exclusivo nos criadouros) */
+  --amber-bg: #FEF6DC;
+  --amber-text: #6E4400;
+  --amber-line: #AE7F14;
+
+  /* Foco acessível */
+  --focus: #18474F;
+
+  /* Tipografia — máxima legibilidade e acessibilidade em tela */
+  --font-display: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --font-body: 'DM Sans', system-ui, -apple-system, sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, 'Cascadia Mono', Menlo, monospace;
+
+  /* Forma & ritmo */
+  --radius-sm: 6px;
+  --radius: 8px;
+  --radius-lg: 12px;
+  --header-h: 72px;
+  --section-y: clamp(4rem, 3rem + 4vw, 6.5rem);
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* ==========================================================================
+   Base
+   ========================================================================== */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--header-h) + 12px);
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background-color: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background-color: var(--brand);
+  color: #FFFFFF;
+}
+
+:focus-visible {
+  outline: 2.5px solid var(--focus);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+.on-dark :focus-visible,
+.on-dark:focus-visible {
+  --focus: var(--gold);
+}
+
+main:focus {
+  outline: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.skip-link {
+  position: fixed;
+  top: 12px;
+  left: 12px;
+  z-index: 200;
+  padding: 0.7rem 1rem;
+  border-radius: var(--radius-sm);
+  background-color: var(--gold);
+  color: var(--ink);
+  font-weight: 700;
+  transform: translateY(-160%);
+  transition: transform 0.2s var(--ease);
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}

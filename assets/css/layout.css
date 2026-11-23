@@ -1,0 +1,131 @@
+/* ==========================================================================
+   Layout compartilhado
+   ========================================================================== */
+.section-container {
+  @apply mx-auto w-full px-5 md:px-8;
+  max-width: 1180px;
+}
+
+.surface-stone {
+  background-color: var(--stone);
+}
+
+.surface-paper {
+  background-color: var(--paper);
+}
+
+/* Kicker discreto — sem bolinhas ou pílulas numeradas */
+.kicker {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--brand);
+}
+
+.on-dark .kicker {
+  color: var(--gold);
+}
+
+/* Cabeçalho de seção — bloco único alinhado à esquerda (sem texto solto à direita) */
+.section-head {
+  max-width: 680px;
+  margin-bottom: clamp(2rem, 1.5rem + 1.5vw, 2.75rem);
+}
+
+.section-title {
+  margin: 0.55rem 0 0;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(1.8rem, 1.35rem + 1.8vw, 2.55rem);
+  line-height: 1.2;
+  letter-spacing: -0.012em;
+  color: var(--ink);
+  text-wrap: balance;
+}
+
+.section-lede {
+  margin: 0.85rem 0 0;
+  max-width: 58ch;
+  font-size: 16.5px;
+  line-height: 1.6;
+  color: var(--ink-soft);
+}
+
+/* Links */
+.text-link {
+  @apply inline-flex items-center gap-1.5;
+  font-weight: 600;
+  color: var(--brand);
+  text-decoration: underline;
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 4px;
+  transition: color 0.2s var(--ease), text-decoration-color 0.2s var(--ease);
+}
+
+.text-link:hover {
+  color: var(--brand-hover);
+  text-decoration-color: transparent;
+}
+
+/* ==========================================================================
+   Botões — borda arquitetônica (8px), sem pílulas genéricas
+   ========================================================================== */
+.btn {
+  @apply inline-flex items-center justify-center gap-2;
+  min-height: 48px;
+  padding: 0 1.25rem;
+  border: 1.5px solid transparent;
+  border-radius: var(--radius);
+  font-family: var(--font-body);
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.2;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.2s var(--ease), color 0.2s var(--ease),
+    border-color 0.2s var(--ease);
+}
+
+.btn-primary {
+  background-color: var(--brand);
+  color: #FFFFFF;
+}
+
+.btn-primary:hover {
+  background-color: var(--brand-hover);
+}
+
+.btn-gold {
+  background-color: var(--gold);
+  color: var(--ink);
+  font-weight: 700;
+}
+
+.btn-gold:hover {
+  background-color: var(--gold-hover);
+}
+
+.btn-outline {
+  border-color: var(--line-ui);
+  background-color: var(--surface);
+  color: var(--ink);
+}
+
+.btn-outline:hover {
+  border-color: var(--ink);
+  background-color: var(--ink);
+  color: #FFFFFF;
+}
+
+.btn-block {
+  width: 100%;
+}
+
+.btn-icon {
+  width: 19px;
+  height: 19px;
+  flex-shrink: 0;
+}

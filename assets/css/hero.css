@@ -1,0 +1,271 @@
+/* ==========================================================================
+   Hero — fotografia editorial natural + busca direta
+   ========================================================================== */
+.hero {
+  @apply relative flex flex-col justify-center overflow-hidden;
+  isolation: isolate;
+  margin-top: var(--header-h);
+  min-height: clamp(500px, 76svh, 660px);
+  background-color: var(--night);
+  color: var(--on-night);
+}
+
+.hero-media {
+  @apply absolute inset-0;
+  z-index: -2;
+  margin: 0;
+}
+
+.hero-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 74% 35%;
+}
+
+.hero-scrim {
+  @apply absolute inset-0;
+  z-index: -1;
+  background: linear-gradient(0deg,
+      rgba(10, 24, 28, 0.94) 0%,
+      rgba(10, 24, 28, 0.78) 52%,
+      rgba(10, 24, 28, 0.35) 100%);
+}
+
+@media (min-width: 900px) {
+  .hero-scrim {
+    background:
+      linear-gradient(90deg,
+        rgba(10, 24, 28, 0.94) 0%,
+        rgba(10, 24, 28, 0.78) 44%,
+        rgba(10, 24, 28, 0.12) 76%),
+      linear-gradient(0deg, rgba(10, 24, 28, 0.6) 0%, rgba(10, 24, 28, 0) 40%);
+  }
+}
+
+.hero-content {
+  @apply mx-auto w-full px-5 md:px-8;
+  max-width: 1180px;
+  padding-top: clamp(3rem, 2.5rem + 2vw, 4.5rem);
+  padding-bottom: clamp(3rem, 2.5rem + 2vw, 4.5rem);
+}
+
+.hero-copy {
+  max-width: 630px;
+}
+
+.hero-title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(2.1rem, 1.4rem + 2.5vw, 3.45rem);
+  line-height: 1.16;
+  letter-spacing: -0.012em;
+  color: #FFFFFF;
+  text-wrap: balance;
+}
+
+.hero-copy .kicker + .hero-title {
+  margin-top: 0.75rem;
+}
+
+.hero-lede {
+  margin: 1.1rem 0 0;
+  max-width: 50ch;
+  font-size: clamp(1rem, 0.96rem + 0.25vw, 1.125rem);
+  line-height: 1.6;
+  color: var(--on-night);
+}
+
+/* Barra de busca integrada ao fundo escuro (vidro fosco petróleo) */
+.filter-bar {
+  @apply grid grid-cols-1 gap-3 md:items-end;
+  margin-top: 2rem;
+  max-width: 780px;
+  padding: 0.9rem;
+  border: 1px solid rgba(244, 245, 242, 0.2);
+  border-radius: var(--radius-lg);
+  background-color: rgba(13, 31, 36, 0.8);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+  color: var(--on-night);
+  box-shadow: 0 24px 48px -24px rgba(0, 0, 0, 0.6);
+}
+
+@media (min-width: 768px) {
+  .filter-bar {
+    grid-template-columns: 210px 1fr auto;
+    padding: 1rem;
+  }
+}
+
+.filter-field {
+  @apply flex flex-col gap-1.5;
+}
+
+.filter-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--on-night-muted);
+}
+
+.filter-select,
+.filter-input {
+  width: 100%;
+  min-height: 48px;
+  padding: 0 0.9rem;
+  border: 1px solid rgba(244, 245, 242, 0.34);
+  border-radius: var(--radius-sm);
+  background-color: rgba(255, 255, 255, 0.08);
+  font-family: var(--font-body);
+  font-size: 15.5px;
+  color: #FFFFFF;
+  -webkit-appearance: none;
+  appearance: none;
+  transition: border-color 0.2s var(--ease), background-color 0.2s var(--ease),
+    box-shadow 0.2s var(--ease);
+}
+
+.filter-select option {
+  background-color: var(--night);
+  color: #FFFFFF;
+}
+
+.filter-select:hover,
+.filter-input:hover {
+  border-color: rgba(244, 245, 242, 0.65);
+  background-color: rgba(255, 255, 255, 0.12);
+}
+
+.filter-select:focus-visible,
+.filter-input:focus-visible {
+  outline: none;
+  border-color: var(--gold);
+  background-color: rgba(255, 255, 255, 0.12);
+  box-shadow: 0 0 0 3px rgba(240, 189, 66, 0.26);
+}
+
+.filter-select {
+  padding-right: 2.25rem;
+  cursor: pointer;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 14 14' fill='none'%3E%3Cpath d='M3 5l4 4 4-4' stroke='%23F4F5F2' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.85rem center;
+}
+
+.filter-input::placeholder {
+  color: rgba(244, 245, 242, 0.62);
+}
+
+.filter-input::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+}
+
+.filter-submit {
+  min-height: 48px;
+  white-space: nowrap;
+}
+
+/* CTAs do modo lançamento (quando ainda não há parceiros publicados) */
+.hero-cta-row {
+  @apply flex flex-col gap-3 sm:flex-row sm:items-center;
+  margin-top: 2rem;
+}
+
+.hero-cta-primary {
+  min-height: 54px;
+  padding: 0 1.6rem;
+  font-size: 16px;
+}
+
+.hero-cta-secondary {
+  min-height: 54px;
+  padding: 0 1.4rem;
+  border: 1px solid rgba(244, 245, 242, 0.45);
+  background-color: rgba(13, 31, 36, 0.55);
+  color: #FFFFFF;
+  font-size: 15.5px;
+}
+
+.hero-cta-secondary:hover {
+  border-color: #FFFFFF;
+  background-color: rgba(244, 245, 242, 0.14);
+}
+
+/* Atalhos rápidos por estado */
+.filter-meta {
+  @apply flex flex-wrap items-center;
+  gap: 0.45rem;
+  margin-top: 1rem;
+  font-size: 14px;
+  color: var(--on-night-muted);
+}
+
+.filter-meta-label {
+  margin-right: 0.2rem;
+}
+
+.uf-chip {
+  min-width: 44px;
+  min-height: 36px;
+  padding: 0 11px;
+  border: 1px solid rgba(244, 245, 242, 0.45);
+  border-radius: var(--radius-sm);
+  background: transparent;
+  font-family: var(--font-body);
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--on-night);
+  cursor: pointer;
+  transition: background-color 0.2s var(--ease), color 0.2s var(--ease),
+    border-color 0.2s var(--ease);
+}
+
+.uf-chip:hover {
+  border-color: #FFFFFF;
+  background-color: rgba(244, 245, 242, 0.12);
+}
+
+.uf-chip.is-active {
+  border-color: var(--gold);
+  background-color: var(--gold);
+  color: var(--ink);
+}
+
+.filter-clear {
+  min-height: 36px;
+  margin-left: 0.35rem;
+  padding: 0 0.35rem;
+  border: 0;
+  background: none;
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 600;
+  color: #FFFFFF;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  cursor: pointer;
+}
+
+/* Provas discretas na base do hero */
+.hero-footnotes {
+  @apply flex flex-wrap items-center gap-x-6 gap-y-2;
+  margin: 1.75rem 0 0;
+  padding: 1.25rem 0 0;
+  border-top: 1px solid var(--night-line);
+  list-style: none;
+  font-size: 14px;
+  color: var(--on-night-muted);
+}
+
+.hero-footnote {
+  @apply inline-flex items-center gap-2;
+}
+
+.hero-footnote-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: var(--gold);
+  flex-shrink: 0;
+}
