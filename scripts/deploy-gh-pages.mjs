@@ -7,7 +7,11 @@ const root = process.cwd()
 const distDir = path.join(root, '.output', 'public')
 
 const run = (cmd, args, cwd = root) => {
-  execFileSync(cmd, args, { cwd, stdio: 'inherit', shell: process.platform === 'win32' })
+  execFileSync(cmd, args, {
+    cwd,
+    stdio: 'inherit',
+    shell: process.platform === 'win32' && cmd === 'npm'
+  })
 }
 
 if (!process.argv.includes('--skip-build')) {
