@@ -30,21 +30,23 @@
       </div>
     </div>
 
-    <Transition name="drawer">
-      <nav v-if="menuAberto" id="menu-mobile" class="mobile-drawer" aria-label="Menu">
-        <div class="mobile-nav-list">
-          <a v-if="temParceirosAtivos" href="#criadouros" class="mobile-nav-link" @click="fecharMenu">
-            Criadouros
+    <Teleport to="body">
+      <Transition name="drawer">
+        <nav v-if="menuAberto" id="menu-mobile" class="mobile-drawer" aria-label="Menu">
+          <div class="mobile-nav-list">
+            <a v-if="temParceirosAtivos" href="#criadouros" class="mobile-nav-link" @click="fecharMenu">
+              Criadouros
+            </a>
+            <a href="#guias" class="mobile-nav-link" @click="fecharMenu">Guias</a>
+            <a href="#parceria" class="mobile-nav-link" @click="fecharMenu">Para criadores</a>
+            <a href="#faq" class="mobile-nav-link" @click="fecharMenu">Dúvidas frequentes</a>
+          </div>
+          <a href="#parceria" class="btn btn-primary btn-block mobile-nav-cta" @click="fecharMenu">
+            Quero ser parceiro
           </a>
-          <a href="#guias" class="mobile-nav-link" @click="fecharMenu">Guias</a>
-          <a href="#parceria" class="mobile-nav-link" @click="fecharMenu">Para criadores</a>
-          <a href="#faq" class="mobile-nav-link" @click="fecharMenu">Dúvidas frequentes</a>
-        </div>
-        <a href="#parceria" class="btn btn-primary btn-block mobile-nav-cta" @click="fecharMenu">
-          Quero ser parceiro
-        </a>
-      </nav>
-    </Transition>
+        </nav>
+      </Transition>
+    </Teleport>
   </header>
 </template>
 
@@ -69,6 +71,10 @@ const aoPressionarTecla = (evento: KeyboardEvent) => {
   if (evento.key === 'Escape' && menuAberto.value) fecharMenu()
 }
 
+const fecharSeDesktop = () => {
+  if (window.innerWidth >= 1024 && menuAberto.value) fecharMenu()
+}
+
 watch(menuAberto, (aberto) => {
   document.documentElement.style.overflow = aberto ? 'hidden' : ''
 })
@@ -77,11 +83,13 @@ onMounted(() => {
   atualizarRolagem()
   window.addEventListener('scroll', atualizarRolagem, { passive: true })
   window.addEventListener('keydown', aoPressionarTecla)
+  window.addEventListener('resize', fecharSeDesktop, { passive: true })
 })
 
 onBeforeUnmount(() => {
   window.removeEventListener('scroll', atualizarRolagem)
   window.removeEventListener('keydown', aoPressionarTecla)
+  window.removeEventListener('resize', fecharSeDesktop)
   document.documentElement.style.overflow = ''
 })
 </script>
