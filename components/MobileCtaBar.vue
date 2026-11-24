@@ -7,7 +7,16 @@
       </template>
       <template v-else>
         <a href="#guias" class="btn btn-primary">Ver os 3 guias</a>
-        <a href="#parceria" class="btn btn-outline">Quero ser parceiro</a>
+        <a
+          :href="gerarLinkParceriaComercial()"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn btn-outline"
+        >
+          <AppIcon name="whatsapp" class="btn-icon" />
+          Quero ser parceiro
+          <span class="sr-only">(abre o WhatsApp em nova aba)</span>
+        </a>
       </template>
     </div>
   </Transition>
@@ -16,7 +25,7 @@
 <script setup lang="ts">
 import { computed, onBeforeUnmount, onMounted, ref } from 'vue'
 
-const { criadourosAtivos } = useCriadouros()
+const { criadourosAtivos, gerarLinkParceriaComercial } = useCriadouros()
 
 /**
  * Barra fixa no mobile: aparece fora das seções que já trazem seus próprios CTAs principais.

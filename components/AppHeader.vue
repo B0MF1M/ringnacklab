@@ -14,7 +14,16 @@
       </nav>
 
       <div class="header-actions">
-        <a href="#parceria" class="btn btn-primary nav-cta">Quero ser parceiro</a>
+        <a
+          :href="gerarLinkParceriaComercial()"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn btn-primary nav-cta"
+        >
+          <AppIcon name="whatsapp" class="btn-icon" />
+          Quero ser parceiro
+          <span class="sr-only">(abre o WhatsApp em nova aba)</span>
+        </a>
         <button
           type="button"
           class="menu-toggle"
@@ -41,8 +50,16 @@
             <a href="#parceria" class="mobile-nav-link" @click="fecharMenu">Para criadores</a>
             <a href="#faq" class="mobile-nav-link" @click="fecharMenu">Dúvidas frequentes</a>
           </div>
-          <a href="#parceria" class="btn btn-primary btn-block mobile-nav-cta" @click="fecharMenu">
+          <a
+            :href="gerarLinkParceriaComercial()"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn btn-primary btn-block mobile-nav-cta"
+            @click="fecharMenu"
+          >
+            <AppIcon name="whatsapp" class="btn-icon" />
             Quero ser parceiro
+            <span class="sr-only">(abre o WhatsApp em nova aba)</span>
           </a>
         </nav>
       </Transition>
@@ -53,7 +70,7 @@
 <script setup lang="ts">
 import { computed, onBeforeUnmount, onMounted, ref, watch } from 'vue'
 
-const { criadourosAtivos } = useCriadouros()
+const { criadourosAtivos, gerarLinkParceriaComercial } = useCriadouros()
 const temParceirosAtivos = computed(() => criadourosAtivos.value.length > 0)
 
 const menuAberto = ref(false)

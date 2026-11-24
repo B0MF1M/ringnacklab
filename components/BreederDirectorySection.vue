@@ -143,8 +143,15 @@
                 <span class="sr-only">(abre em nova aba)</span>
               </a>
 
-              <a href="#parceria" class="btn btn-outline launch-cta-btn">
+              <a
+                :href="gerarLinkParceriaComercial()"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn btn-outline launch-cta-btn"
+              >
+                <AppIcon name="whatsapp" class="btn-icon" />
                 Sou criador legalizado e quero anunciar
+                <span class="sr-only">(abre o WhatsApp em nova aba)</span>
               </a>
             </div>
           </div>
@@ -174,7 +181,8 @@ const {
   temFiltrosAtivos,
   estadoSelecionadoNome,
   limparFiltros,
-  gerarLinkSugestaoWhatsapp
+  gerarLinkSugestaoWhatsapp,
+  gerarLinkParceriaComercial
 } = useCriadouros()
 
 const regioesBrasil = [

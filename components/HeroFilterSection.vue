@@ -114,8 +114,15 @@
         <a href="#guias" class="btn btn-gold hero-cta-primary">
           {{ oferta.cupom ? `Ver os ${guiasAtivos.length} guias com desconto` : `Conhecer os ${guiasAtivos.length} guias` }}
         </a>
-        <a href="#parceria" class="btn hero-cta-secondary">
+        <a
+          :href="gerarLinkParceriaComercial()"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn hero-cta-secondary"
+        >
+          <AppIcon name="whatsapp" class="btn-icon" />
           Quero ser criadouro parceiro
+          <span class="sr-only">(abre o WhatsApp em nova aba)</span>
         </a>
       </div>
     </div>
@@ -131,7 +138,8 @@ const {
   estadosComContagem,
   ufsComParceiros,
   temFiltrosAtivos,
-  limparFiltros
+  limparFiltros,
+  gerarLinkParceriaComercial
 } = useCriadouros()
 
 const { guiasAtivos, oferta } = useGuias()

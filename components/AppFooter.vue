@@ -22,7 +22,16 @@
           <ul class="footer-links">
             <li v-if="temParceirosAtivos"><a href="#criadouros" class="footer-link">Criadouros parceiros</a></li>
             <li><a href="#guias" class="footer-link">Guias do Ring Neck</a></li>
-            <li><a href="#parceria" class="footer-link">Quero ser parceiro</a></li>
+            <li>
+              <a
+                :href="gerarLinkParceriaComercial()"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="footer-link"
+              >
+                Quero ser parceiro ↗<span class="sr-only"> (abre o WhatsApp em nova aba)</span>
+              </a>
+            </li>
             <li><a href="#faq" class="footer-link">Dúvidas frequentes</a></li>
             <li>
               <a :href="instagramUrl" target="_blank" rel="noopener noreferrer" class="footer-link">
@@ -54,7 +63,7 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 
-const { criadourosAtivos } = useCriadouros()
+const { criadourosAtivos, gerarLinkParceriaComercial } = useCriadouros()
 const temParceirosAtivos = computed(() => criadourosAtivos.value.length > 0)
 
 const config = useRuntimeConfig()
